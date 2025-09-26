@@ -17,6 +17,7 @@ app = Flask(
     static_url_path="/static",    # cómo se acceden en la web
     template_folder="templates"   # aquí va el index.html
 )
+
 CORS(app)
 ventas_event = ThreadEvent()
 
@@ -291,4 +292,6 @@ def seed():
     return {"ok": True, "msg": "Sembrado con éxito"}
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5001, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
+
