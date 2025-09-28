@@ -7,7 +7,7 @@ export default defineConfig({
     port: 5173,
   },
   build: {
-    outDir: "dist",
+    outDir: "../backend/static", // <-- así los assets van directo a la carpeta estática de Flask
   },
-  base: "./", // 👈 Esto es lo importante
+  base: "/static/", // <-- rutas absolutas para producción
 });
